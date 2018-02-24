@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>商城首页</title>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no, email=no" />
+
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="css/iconfont.css">
+  <link rel="stylesheet" href="css/home.min.css">
+
+
+
+  <script>
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        recalc = function () {
+          var clientWidth = docEl.clientWidth;
+          if (!clientWidth) return;
+          if(clientWidth>=640){
+            docEl.style.fontSize = '100px';
+          }else{
+            docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+          }
+        };
+      recalc();
+      if (!doc.addEventListener) return;
+      var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+      win.addEventListener(resizeEvt, recalc, false);
+    })(document, window);
+
+  </script>
+
+</head>
+
+<body>
+
+
+
+<!--头部轮播图-->
+<div class="header">
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper" id="swiper-wrapper">
+      <!--<div class="swiper-slide">
+        <img src="" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="" alt="">
+      </div>-->
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+
+  </div>
+</div>
+
+
+<!--精选礼券-->
+<div class="selected-gifts">
+  <div class="tittle">
+    <span class="icon"></span>
+    <p>精选礼券</p>
+  </div>
+
+  <div class="pics">
+    <div class="left"><img src="" alt=""></div>
+    
+    <div class="right">
+      <div class="right-top"><img src="" alt=""></div>
+      <div class="right-bottom"><img src="" alt=""></div>
+    </div>
+  </div>
+
+</div>
+
+
+<!--人气推荐-->
+<div class="popular-recommend">
+  <div class="tittle">
+    <span class="icon"></span>
+    <p>人气推荐</p>
+
+    <a href="javascript:;" class="more">更多>></a>
+
+  </div>
+  <ul class="list">
+
+  </ul>
+</div>
+
+</body>
+
+<script src="js/config.js"></script>
+<script src="./js/zepto.min.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script src="./js/home.js"></script>
+
+</html>

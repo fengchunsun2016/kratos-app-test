@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>确认订单</title>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no, email=no" />
+
+
+
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/iconfont.css">
+  <link rel="stylesheet" href="./css/order.min.css">
+
+
+  <script>
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        recalc = function () {
+          var clientWidth = docEl.clientWidth;
+          if (!clientWidth) return;
+          if(clientWidth>=640){
+            docEl.style.fontSize = '100px';
+          }else{
+            docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+          }
+        };
+      recalc();
+      if (!doc.addEventListener) return;
+      var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+      win.addEventListener(resizeEvt, recalc, false);
+    })(document, window);
+
+  </script>
+
+
+</head>
+<body>
+
+<div class="header">
+  <!--<div class="tittle">
+    <span class="iconfont icon-back"></span>
+    确认订单
+  </div>-->
+
+  <div class="send-address">
+    <span class="iconfont icon-map"></span>
+    <span class="text">
+      发送至本手机号码：
+    </span>
+    <span class="phone-num"></span>
+  </div>
+</div>
+
+<div class="content">
+  <div class="info">
+    <div class="pic">
+      <img src="" alt="">
+    </div>
+
+    <div class="info-text">
+      <div class="tittle">
+
+      </div>
+
+      <div class="money">
+        <div class="how-much">
+          <span class="point-price"></span>
+          <span class="amt-price"></span>
+
+        </div>
+        <div class="count">
+          x 1
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="explain">
+    <p class="tittle">说明：</p>
+    <p class="item">1.购买的优惠券会以短信的形式发送至本手机号码</p>
+    <p class="item">2.查找购买的优惠券在我的-券包查询</p>
+  </div>
+</div>
+
+<div class="go-pay">
+  <div class="total">
+    <span class="text">实付金额：</span>
+    <span class="point-price"></span>
+    <span class="amt-price"></span>
+  </div>
+
+  <div class="go">
+    去付款
+  </div>
+</div>
+
+
+
+
+<script src="js/config.js"></script>
+<script src="./js/zepto.min.js"></script>
+<script src="./js/order.js"></script>
+
+
+</body>
+</html>

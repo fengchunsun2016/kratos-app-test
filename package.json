@@ -1,0 +1,22 @@
+{
+  "name": "kratos-app-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "less-detail": "lessc css/detail.less > css/detail.min.css -x",
+    "less-order": "lessc css/order.less > css/order.min.css -x",
+    "less-home": "lessc css/home.less > css/home.min.css -x",
+    "less-we": "lessc css/we.less > css/we.min.css -x",
+    "less-popular": "lessc css/popular.less > css/popular.min.css -x"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "less": "^2.7.3",
+    "swiper": "^4.0.7",
+    "zepto": "^1.2.0"
+  }
+}

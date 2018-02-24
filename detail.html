@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>商品详情</title>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no, email=no" />
+
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/swiper.min.css">
+  <link rel="stylesheet" href="./css/iconfont.css">
+  <link rel="stylesheet" href="./css/detail.min.css">
+
+
+
+  <script>
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        recalc = function () {
+          var clientWidth = docEl.clientWidth;
+          if (!clientWidth) return;
+          if(clientWidth>=640){
+            docEl.style.fontSize = '100px';
+          }else{
+            docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+          }
+        };
+      recalc();
+      if (!doc.addEventListener) return;
+      var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+      win.addEventListener(resizeEvt, recalc, false);
+    })(document, window);
+
+  </script>
+
+</head>
+<body>
+
+<!--头部轮播图-->
+<div class="header">
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="" alt="">
+      </div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+
+  </div>
+
+
+</div>
+
+<!--商品信息-->
+<div class="content">
+  <div id="goodsId" style="display:none;">java数据写在这里</div>
+  <div class="product">
+    飞利浦旗舰店100元代金券
+  </div>
+
+  <div class="how-much">
+    <!--<span class="company">￥</span>-->
+    <span class="num">积分价格/人民币价格</span>
+  </div>
+
+  <div class="info">
+    <div class="stock">
+      <span>库存：</span>
+      <span id="total"></span>
+    </div>
+
+    <div class="mail">
+      <span>快递：</span>
+      <span>免费</span>
+    </div>
+  </div>
+
+  <div class="warning">
+    本商品为电子券商品，一经售出，无法退换！
+  </div>
+  
+</div>
+
+
+<!--底部详情-->
+<div class="footer">
+  <div class="tittle">
+    商品详情
+  </div>
+  <div class="images">
+    <img src="" alt="">
+    <img src="" alt="">
+  </div>
+
+
+</div>
+
+
+<div class="button-buy">
+    立即购买
+</div>
+</body>
+
+<script src="js/config.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/detail.js"></script>
+
+</html>

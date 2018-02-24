@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>关于我们</title>
+
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no, email=no" />
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/iconfont.css">
+  <link rel="stylesheet" href="css/we.min.css">
+
+
+
+  <script>
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        recalc = function () {
+          var clientWidth = docEl.clientWidth;
+          if (!clientWidth) return;
+          if(clientWidth>=640){
+            docEl.style.fontSize = '100px';
+          }else{
+            docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+          }
+        };
+      recalc();
+      if (!doc.addEventListener) return;
+      var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+      win.addEventListener(resizeEvt, recalc, false);
+    })(document, window);
+
+  </script>
+
+</head>
+<body>
+
+
+<div class="content">
+  <div class="bg-top">
+    <img src="./images/bg-for-we.png" alt="">
+  </div>
+
+
+  <div class="info">
+    <div class="tittle">
+      <span class="iconfont icon-jianjie"></span>
+      <span>公司简介</span>
+    </div>
+    <div class="text">
+      北京亿联通付科技有限公司成立于2014年，是一家由互联网、支付行业资深人士等组成的，核心管理团队具有多年丰富的互联网和移动互联网开发运营经验，致力于技术服务、科技创新的公司。聚融通支付平台（TFCpay），为亿联通付旗下的旗舰型支付产品，专注提供“安全、快捷、方便”的支付解决方案。聚融通作为全国移动支付领域的一批黑马，现已推出多种成熟的定制化支付解决方案，持续不断为合作伙伴提供科学严谨的流程设计，完善的支付体验和全面的整合营销服务，全方位的解决商户支付问题和市场营销需求。
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="tittle">
+    <span class="iconfont icon-attachment"></span>
+    <span>联系我们</span>
+  </div>
+
+  <div class="tel">
+    <span>电话：</span>
+    <span>010-60561630</span>
+  </div>
+  <div class="address">
+    <span>地址：</span>
+    <span>北京市通州区新华西街58号万达广场A座2613</span>
+  </div>
+</div>
+
+
+
+</body>
+</html>

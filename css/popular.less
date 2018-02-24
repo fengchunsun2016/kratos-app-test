@@ -1,0 +1,119 @@
+
+
+body{
+  position:relative;
+  background-color:#eff1f7;
+}
+
+.main{
+  margin-top:-40px;
+}
+
+img{
+  display:block;
+  width:100%;
+  height:100%;
+}
+
+.pullRefresh{
+  position:absolute;
+  top:0;
+  left:0;
+  width:7.5rem;
+  height:40px;
+  line-height:40px;
+  text-align:center;
+  font-size:0.26rem;
+}
+#dropRefresh{
+  display:none;
+}
+#refreshing{
+  display:none;
+}
+
+.popular-recommend{
+  background-color:#efeff5;
+
+  .list{
+    .item{
+      display:flex;
+      margin-bottom:0.2rem;
+      padding: 0.2rem 0.24rem;
+      background-color:#fff;
+
+      .pic{
+        width:2.28rem;
+        height:2.28rem;
+      }
+
+      .info{
+        position: relative;
+        margin-left:0.2rem;
+        width:4.74rem;
+        height:2.28rem;
+
+        .name{
+          font-size:0.3rem;
+        }
+        .marks{
+          margin-top:0.1rem;
+
+          p{
+            height:0.4rem;
+          }
+          span{
+            margin-right:0.1rem;
+            padding:0 0.06rem;
+            line-height:0.4rem;
+            color:#a17b3d;
+            font-size:0.2rem;
+            background-color:#fcf3ee;
+            vertical-align: top;
+          }
+
+        }
+        .bottom{
+          position: absolute;
+          bottom:0.05rem;
+          display:flex;
+          justify-content: space-between;
+          width:4.74rem;
+
+          .money{
+            font-size:0.3rem;
+            color:#ffa533;
+            .amt-price{
+              margin-right:10px;
+            }
+          }
+          .more{
+            width:0.4rem;
+            height:0.4rem;
+            line-height:0.4rem;
+            border-radius:50%;
+            font-size:0.3rem;
+            text-align:center;
+            color:#fff;
+            background-color:#ffa024;
+          }
+
+        }
+      }
+    }
+  }
+
+
+}
+
+.load-more{
+  display:none;
+  width:100%;
+  height:0.6rem;
+  line-height:0.6rem;
+  text-align:center;
+  font-size:0.3rem;
+  background-color:#ccc;
+}
+
+
