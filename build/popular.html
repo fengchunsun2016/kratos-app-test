@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>人气推荐</title>
+
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no, email=no" />
+
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/iconfont.css">
+  <link rel="stylesheet" href="./css/popular.min.css">
+
+  <!--<link rel="stylesheet/less" href="css/popular.less">
+  <script src="js/less.min.js"></script>-->
+
+
+  <script>
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        recalc = function () {
+          var clientWidth = docEl.clientWidth;
+          if (!clientWidth) return;
+          if(clientWidth>=640){
+            docEl.style.fontSize = '100px';
+          }else{
+            docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+          }
+        };
+      recalc();
+      if (!doc.addEventListener) return;
+      var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+      win.addEventListener(resizeEvt, recalc, false);
+    })(document, window);
+
+  </script>
+
+</head>
+<body>
+
+<div class="main" id="main">
+  <div class="refresh" style="height:40px;width:7.5rem;">
+    <div class="pullRefresh" id="pullRefresh">
+      <span class="iconfont icon-icon-arrow-btm4"></span>
+      继续下拉刷新
+    </div>
+    <div class="pullRefresh" id="dropRefresh">
+      <span class="iconfont icon-icon-arrow-top4"></span>
+      释放立即刷新
+    </div>
+    <div class="pullRefresh" id="refreshing">
+      正在刷新...
+    </div>
+  </div>
+
+
+  <!--<div class="header">
+  人气推荐
+  </div>
+
+<span class="iconfont icon-back return"></span>-->
+
+  <div class="popular-recommend">
+    <ul class="list">
+      <!--<li class="item">
+        <div class="pic"><img src="./images/watch.jpg" alt=""></div>
+
+        <div class="info">
+          <div class="name">呷哺呷哺呷哺呷哺呷哺呷哺呷哺呷哺100元代金券</div>
+          <div class="marks">
+            <p><span>免运费</span>
+              <span>积分全额抵用</span></p>
+            <p><span>免费</span></p>
+
+          </div>
+          <div class="bottom">
+            <div class="money">
+              <span>￥</span>
+              <span class="num">100</span>
+            </div>
+            <div class="more"><i class="iconfont icon-more"></i></div>
+          </div>
+        </div>
+
+      </li>
+      <li class="item">
+        <div class="pic"><img src="./images/watch.jpg" alt=""></div>
+
+        <div class="info">
+          <div class="name">呷哺呷哺呷哺呷哺呷哺呷哺呷哺呷哺100元代金券</div>
+          <div class="marks">
+            <span>免运费</span>
+            <span>积分全额抵用</span>
+          </div>
+          <div class="bottom">
+            <div class="money">
+              <span>￥</span>
+              <span class="num">100</span>
+            </div>
+            <div class="more"><i class="iconfont icon-more"></i></div>
+          </div>
+        </div>
+
+      </li>
+      <li class="item">
+        <div class="pic"><img src="./images/watch.jpg" alt=""></div>
+
+        <div class="info">
+          <div class="name">呷哺呷哺呷哺呷哺呷哺呷哺呷哺呷哺100元代金券</div>
+          <div class="marks">
+            <span>免运费</span>
+            <span>积分全额抵用</span>
+          </div>
+          <div class="bottom">
+            <div class="money">
+              <span>￥</span>
+              <span class="num">100</span>
+            </div>
+            <div class="more"><i class="iconfont icon-more"></i></div>
+          </div>
+        </div>
+
+      </li>-->
+    </ul>
+  </div>
+
+  <div class="load-more">正在努力加载...</div>
+
+</div>
+
+
+
+
+
+
+
+
+<script src="./js/config.js"></script>
+<script src="./js/zepto.min.js"></script>
+<script src="./js/popular.js"></script>
+
+</body>
+</html>

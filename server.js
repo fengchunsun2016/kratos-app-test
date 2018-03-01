@@ -12,7 +12,7 @@ const url = require('url');
 
 let server = http.createServer(
   (req,res)=>{
-    //console.log(req.url,'req.url');
+    console.log(req.url,'req.url');
 
     var urlObj = url.parse(req.url,true);
     let pathName = urlObj.pathname;
