@@ -3,24 +3,9 @@
  */
 
 $(document).ready(function () {
-/*
- http://192.168.30.14:8080/kratos-app-web/
- 100000000047
-* */
-
-
-  const userId = request('userId');
-  const token = request('token');
-
-
-  //const isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-  const isiOS = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-
-
 
   /*整体布局*/
   layout();
-
 
 
   /*整体布局*/
@@ -64,8 +49,8 @@ $(document).ready(function () {
           let list = data.list;
           let str = ``;
 
-          if(list&&list.length>1){
-            for(let i=0; i<list.length; i++){
+          if(list&&list.length) {
+            for (let i = 0; i < list.length; i++) {
               let listItem = list[i];
               str += `<div class="swiper-slide">
                         <img src=${listItem.imgUrl} alt="" banner-id=${listItem.id} event-type=${listItem.eventType} redirect-url=${listItem.redirectUrl}>
@@ -76,18 +61,7 @@ $(document).ready(function () {
 
             //初始化轮播图
             mySwiper();
-          }else if(list&&list.length==1){//只有一张图片的时候不轮播
-            for(let i=0; i<list.length; i++){
-              let listItem = list[i];
-              str += `<div class="swiper-slide">
-                        <img src=${listItem.imgUrl} alt="" banner-id=${listItem.id} event-type=${listItem.eventType} redirect-url=${listItem.redirectUrl}>
-                      </div>`
-
-            }
-            $('#swiper-wrapper').html(str);
           }
-
-
         }
       },
       error:function (err) {
@@ -132,7 +106,7 @@ $(document).ready(function () {
 
 
                  //进入详情页
-                 toDetail(url);
+                 App.toDetail(url);
 
               }
             })
@@ -177,17 +151,10 @@ $(document).ready(function () {
             let redirectUrl = $(this).attr('redirect-url');
             let goodsId = $(this).attr("goods-id");
             let url = redirectUrl + '?userId=' + userId + '&goodsId=' + goodsId + '&token=' + token;
-
-            //console.log(goodsId,'goodsId');
-
-            //let url = '192.168.30.218:1990/detail.html?userId=' + userId + '&goodsId=' + goodsId; //本地联调专用
-
+            
             //进入详情页
-            toDetail(url);
-
-            //开发专用
-            //window.location.href = 'detail.html?userId=' + userId + '&goodsId=' + goodsId;
-
+            App.toDetail(url);
+            
           })
         }
 
@@ -207,13 +174,8 @@ $(document).ready(function () {
     $('.popular-recommend .tittle .more').tap(function () {
       let url = domain + '/static/popular.html?userId='+userId + '&token=' + token;
 
-      //window.location.href = 'popular.html?userId='+userId + '&rows=1'; //开发专用
+      App.toMore(url);
 
-      if(isiOS){
-        window.webkit.messageHandlers.more.postMessage(url);
-      }else{
-        andr.more(url);
-      }
     });
 
 
@@ -236,7 +198,7 @@ $(document).ready(function () {
             let listItem = list[i];
 
             str += `<li class="item" goods-id=${listItem.goodsId} redirect-url=${listItem.redirectUrl}>
-                      <div class="pic"><img src=${listItem.imgUrl} alt=${listItem.goodsName}></div>
+                      <div class="pic"><img src=${listItem.imgUrl}></div>
                 
                       <div class="info">
                         <div class="name">${listItem.goodsName}</div>
@@ -322,12 +284,8 @@ $(document).ready(function () {
 
             let url = redirectUrl + '?userId=' + userId + '&goodsId=' + goodsId + '&token=' + token;
 
-            //let url = '192.168.30.218:1990/detail.html?userId=' + userId + '&goodsId=' + goodsId;//本地测试专用
-
-            //window.location.href = 'detail.html?userId=' + userId + '&goodsId=' + goodsId;//开发专用
-
             //进入详情页
-             toDetail(url);
+             App.toDetail(url);
           })
 
         }
@@ -338,31 +296,6 @@ $(document).ready(function () {
     })
   }
 
-
-  //解析url
-  function request(paras) {
-    let url = location.href;
-    let paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
-    let paraObj = {}
-    for (let i = 0; j = paraString[i]; i++) {
-      paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
-    }
-    let returnValue = paraObj[paras.toLowerCase()];
-    if (typeof(returnValue) == "undefined") {
-      return "";
-    } else {
-      return returnValue;
-    }
-  }
-
-  //进入详情页
-  function toDetail(url) {
-    if(isiOS){
-      window.webkit.messageHandlers.toDetail.postMessage(url);
-    }else{
-      andr.toDetail(url);
-    }
-  }
 
 
 });

@@ -4,9 +4,7 @@
 
 $(document).ready(function () {
 
-  const userId = request('userId');
-  const token = request('token');
-  const goodsId = request('goodsId');
+  let goodsId = request('goodsId');
   let redirectUrl = null;
 
   getOrder();//获取订单页信息
@@ -85,45 +83,13 @@ $(document).ready(function () {
     )
   }
 
-  /*$('.header .tittle .icon-back').tap(function (e) {
-    history.go(-1);
-  })*/
 
   $('.go-pay .go').tap(function () {
 
-    let userId = request('userId');
-    let goodsId = request('goodsId');
-    //let url = '192.168.30.218:1990/detail.html?userId=' + userId + '&goodsId=' + goodsId;
+    App.toPay(goodsId);
 
-    let u = navigator.userAgent;
-    let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-    let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-
-
-    if(isiOS){
-      window.webkit.messageHandlers.toPay.postMessage(goodsId);
-    }else{
-      andr.toPay(goodsId);
-    }
   })
 
-
-
-  //解析url
-  function request(paras) {
-    let url = location.href;
-    let paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
-    let paraObj = {}
-    for (i = 0; j = paraString[i]; i++) {
-      paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
-    }
-    let returnValue = paraObj[paras.toLowerCase()];
-    if (typeof(returnValue) == "undefined") {
-      return "";
-    } else {
-      return returnValue;
-    }
-  }
 
 })
 

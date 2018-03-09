@@ -4,9 +4,7 @@
 
 $(document).ready(function () {
 
-  let userId = request('userId');
   let goodsId = request('goodsId');
-  let token = request('token');
 
 
   getTotal(); //更新库存
@@ -31,16 +29,7 @@ $(document).ready(function () {
 
       let url = domain + '/static/order.html?userId=' + userId + '&goodsId=' + goodsId + '&token=' + token;
 
-      let u = navigator.userAgent;
-      let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-      let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-
-
-      if(isiOS){
-        window.webkit.messageHandlers.toBuy.postMessage(url);
-      }else{
-        andr.toBuy(url);
-      }
+      App.toBuy(url);
     })
   }
 
@@ -157,25 +146,6 @@ $(document).ready(function () {
       }
     })
   }
-
-
-
-  //解析url
-  function request(paras) {
-    let url = location.href;
-    let paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
-    let paraObj = {}
-    for (i = 0; j = paraString[i]; i++) {
-      paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
-    }
-    let returnValue = paraObj[paras.toLowerCase()];
-    if (typeof(returnValue) == "undefined") {
-      return "";
-    } else {
-      return returnValue;
-    }
-  }
-
 
 
 });

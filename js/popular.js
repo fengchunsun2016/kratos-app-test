@@ -4,10 +4,7 @@
 
 $(document).ready(function () {
 
-  const userId = request('userId');
-  const token = request('token');
-  let page = 1;
-
+  let page = 1;//先加载第一页的内容
   let hasMore = true; //标志：判断是否还有数据
 
 
@@ -42,10 +39,6 @@ $(document).ready(function () {
   ;(function () {
     let _start = 0;
     let _end = 0;
-
-    /*$(window).on('touchstart', touchStart);
-    $(window).on('touchmove', touchMove);
-    $(window).on('touchend', touchEnd);*/
 
     window.addEventListener('touchstart', touchStart);
     window.addEventListener('touchmove', touchMove);
@@ -125,7 +118,7 @@ $(document).ready(function () {
               //console.log(listItem,'listItem');
 
               str += `<li class="item" goods-id=${listItem.goodsId} redirect-url=${listItem.redirectUrl}>
-                      <div class="pic"><img src=${listItem.imgUrl} alt=${listItem.goodsName}></div>
+                      <div class="pic"><img src=${listItem.imgUrl}></div>
                 
                       <div class="info">
                         <div class="name">${listItem.goodsName}</div>
@@ -206,19 +199,9 @@ $(document).ready(function () {
               let goodsId = $(this).attr('goods-id');
 
               let url = redirectUrl + '?userId=' + userId + '&goodsId=' + goodsId + '&token=' + token;
-              //let url = '192.168.30.218:1990/detail.html?userId='+userId+'&goodsId=' + goodsId;
-              //window.location.href = './detail.html?userId=' + userId + '&goodsId=' + goodsId;
 
-              let u = navigator.userAgent;
-              let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-              let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+              App.toDetail(url);
 
-
-              if (isiOS) {
-                window.webkit.messageHandlers.toDetail.postMessage(url);
-              } else {
-                andr.toDetail(url);
-              }
             })
 
           } else {
@@ -233,23 +216,6 @@ $(document).ready(function () {
         console.log(err);
       }
     })
-  }
-
-
-  //解析url
-  function request(paras) {
-    let url = location.href;
-    let paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
-    let paraObj = {}
-    for (i = 0; j = paraString[i]; i++) {
-      paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
-    }
-    let returnValue = paraObj[paras.toLowerCase()];
-    if (typeof(returnValue) == "undefined") {
-      return "";
-    } else {
-      return returnValue;
-    }
   }
 
 
