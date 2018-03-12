@@ -15,7 +15,6 @@
 
 const domain = App.getDomain();
 const userId = request('userId');
-
 const token = request('token');
 
 
